@@ -71,8 +71,3 @@ There are a few imports that do not allow go-git to be imported in a Go program 
 ## Developer Notes
 
 `./start.sh` is a script that starts a web server that loads the wasm into the browser.
-
-## References
-
-1. [Go + WebAssembly]
-2. [github.com/src-d/go-git](https://github.com/src-d/go-git)
