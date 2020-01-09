@@ -2,32 +2,22 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 
 	"github.com/src-d/go-billy/memfs"
+	"gopkg.in/src-d/go-git.v4"
+	"gopkg.in/src-d/go-git.v4/storage/memory"
 )
 
 func main() {
 	fs := memfs.New()
 
-	filename := "hello.txt"
-	cf, err := fs.Create(filename)
+	repo, err := git.Clone(memory.NewStorage(), fs, &git.CloneOptions{
+		URL: "https://github.com/crhntr/explore-go-git-wasm",
+	})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Print(err)
+		return
 	}
-	fmt.Fprintf(cf, "Hello, world!")
-	cf.Close()
 
-	of, err := fs.Open(filename)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer of.Close()
-
-	buf, err := ioutil.ReadAll(of)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println(string(buf))
+	fmt.Println(repo.Head())
 }
