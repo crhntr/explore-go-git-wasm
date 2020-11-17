@@ -10,7 +10,7 @@ By refactoring when and how the osfs package gets imported in go-git we can use 
 
 I have a tagged release here with the required go-git changes: https://github.com/crhntr/go-git/releases/tag/wip-js-wasm
 
-To get my proof-of-concept release run "go get github.com/crhntr/go-git@wip-js-wasm"
+To get my proof-of-concept release run `go get github.com/crhntr/go-git@wip-js-wasm`
 and add `replace github.com/go-git/go-git/v5 v5.2.0 =>  github.com/crhntr/go-git/v5 <the version you see in the 'go get' output>` to your module file. 
 
 ## Methodology
