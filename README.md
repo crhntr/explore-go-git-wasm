@@ -13,7 +13,7 @@ By refactoring when and how the osfs package gets imported, Go-Git would be able
 
 - Get imported modules
 
-  `go mod download`
+  `go mod vendor`
 
 - Find usages of packages that do non-wasm-supproted os syscalls
 
