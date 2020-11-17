@@ -9,8 +9,9 @@ main() {
       GOOS=js GOARCH=wasm go build -o main.wasm
   fi
 
-  sleep 2 && open 'http://localhost:8888/' &
-  goexec 'http.ListenAndServe(`:8888`, http.FileServer(http.Dir(`.`)))'
+  sleep 2 && open 'http://localhost:8080/' &
+
+  go run ./cmd
 }
 
 main
